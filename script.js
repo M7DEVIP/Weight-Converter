@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const kilogramsInput = document.getElementById('kilograms');
     const poundsInput = document.getElementById('pounds');
     const convertButton = document.getElementById('convertButton');
+    const clearButton = document.getElementById('clearButton');
 
     convertButton.addEventListener('click', function() {
         const kilograms = parseFloat(kilogramsInput.value);
@@ -30,5 +31,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     poundsInput.addEventListener('input', function() {
         kilogramsInput.value = ''; // Clear the other input when one is being typed into
+    });
+
+    clearButton.addEventListener('click', function() {
+        kilogramsInput.value = '';
+        poundsInput.value = '';
     });
 });
