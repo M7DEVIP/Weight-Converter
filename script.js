@@ -1,18 +1,21 @@
 // script.js
 document.addEventListener('DOMContentLoaded', function() {
+    const body = document.body;
+    const darkModeToggle = document.getElementById('darkModeToggle');
     const kilogramsInput = document.getElementById('kilograms');
     const gramsInput = document.getElementById('grams');
     const poundsInput = document.getElementById('pounds');
     const milligramsInput = document.getElementById('milligrams');
     const convertButton = document.getElementById('convertButton');
     const clearButton = document.getElementById('clearButton');
-    const highlightDuration = 300; // milliseconds
+    const highlightDuration = 300;
 
     function saveConversion() {
         localStorage.setItem('lastKilograms', kilogramsInput.value);
         localStorage.setItem('lastGrams', gramsInput.value);
         localStorage.setItem('lastPounds', poundsInput.value);
         localStorage.setItem('lastMilligrams', milligramsInput.value);
+        localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
     }
 
     function loadLastConversion() {
@@ -20,6 +23,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const lastGrams = localStorage.getItem('lastGrams');
         const lastPounds = localStorage.getItem('lastPounds');
         const lastMilligrams = localStorage.getItem('lastMilligrams');
+        const darkModeEnabled = localStorage.getItem('darkMode') === 'true';
+
+        if (darkModeEnabled) {
+            body.classList.add('dark-mode');
+            darkModeToggle.checked = true;
+        }
 
         if (lastKilograms !== null) kilogramsInput.value = lastKilograms;
         if (lastGrams !== null) gramsInput.value = lastGrams;
@@ -45,6 +54,11 @@ document.addEventListener('DOMContentLoaded', function() {
             inputElement.classList.remove('conversion-highlight');
         }, highlightDuration);
     }
+
+    darkModeToggle.addEventListener('change', function() {
+        body.classList.toggle('dark-mode');
+        saveConversion(); 
+    });
 
     kilogramsInput.addEventListener('input', function() {
         clearAllInputsExcept(kilogramsInput);

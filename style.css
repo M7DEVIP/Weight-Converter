@@ -4,38 +4,91 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 5px;
+    padding-top: 40px;
     background-color: #f8f9fa;
+    color: #343a40;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+    background-color: #212529;
+    color: #f8f9fa;
+}
+
+body.dark-mode h1 {
+    color: #f8f9fa;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.theme-toggle-label {
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+    background: #ccc;
+    border-radius: 15px;
+    position: relative;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.theme-toggle-label:after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 19px;
+    height: 19px;
+    background: #fff;
+    border-radius: 50%;
+    transition: 0.3s ease;
+}
+
+.theme-toggle input[type="checkbox"] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+.theme-toggle input:checked + .theme-toggle-label {
+    background: #6c757d;
+}
+
+.theme-toggle input:checked + .theme-toggle-label:after {
+    left: calc(100% - 22px);
 }
 
 h1 {
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     color: #343a40;
     text-align: center;
-    font-size: 2.5em;
+    font-size: 2.7em;
+}
+
+body.dark-mode h1 {
+    color: #f8f9fa;
 }
 
 .container {
     background-color: #ffffff;
-    padding: 50px;
-    border-radius: 12px;
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    width: 400px;
+    gap: 25px;
+    width: 450px;
     animation: fadeIn 0.5s ease-out;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+body.dark-mode .container {
+    background-color: #343a40;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
 }
 
 .container > div {
@@ -47,17 +100,28 @@ h1 {
 label {
     font-weight: 500;
     color: #495057;
-    font-size: 1.1em;
-    width: 150px;
+    font-size: 1.15em;
+    width: 160px;
+    transition: color 0.3s ease;
+}
+
+body.dark-mode label {
+    color: #ced4da;
 }
 
 input[type="number"] {
-    padding: 12px;
+    padding: 14px;
     border: 1px solid #ced4da;
-    border-radius: 8px;
-    width: 220px;
-    font-size: 1.1em;
-    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out; /* Added transition for smoother highlight */
+    border-radius: 10px;
+    width: 250px;
+    font-size: 1.15em;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.3s ease;
+}
+
+body.dark-mode input[type="number"] {
+    background-color: #495057;
+    color: #f8f9fa;
+    border-color: #6c757d;
 }
 
 input[type="number"]:focus {
@@ -66,23 +130,50 @@ input[type="number"]:focus {
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
+body.dark-mode input[type="number"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+
 .conversion-highlight {
-    background-color: #e9ecef; /* Light gray background for highlight */
-    border-color: #007bff !important; /* Highlight border color */
+    background-color: #e9ecef;
+    border-color: #007bff !important;
+}
+
+body.dark-mode .conversion-highlight {
+    background-color: #6c757d;
+    border-color: #007bff !important;
+    color: #f8f9fa;
+}
+
+.buttons-container {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+    margin-top: 30px;
 }
 
 button {
-    padding: 14px 28px;
+    padding: 16px 32px;
     background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
-    font-size: 1.1em;
+    font-size: 1.2em;
     transition: background-color 0.3s ease;
 }
 
+body.dark-mode button {
+    background-color: #007bff;
+    color: #fff;
+}
+
 button:hover {
+    background-color: #0056b3;
+}
+
+body.dark-mode button:hover {
     background-color: #0056b3;
 }
 
@@ -90,6 +181,15 @@ button:hover {
     background-color: #6c757d;
 }
 
+body.dark-mode #clearButton {
+    background-color: #6c757d;
+    color: #fff;
+}
+
 #clearButton:hover {
+    background-color: #545b62;
+}
+
+body.dark-mode #clearButton:hover {
     background-color: #545b62;
 }
