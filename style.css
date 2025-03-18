@@ -4,25 +4,38 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 60px;
+    padding-top: 5px; /* Changed to 5px */
     background-color: #f8f9fa;
 }
 
 h1 {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     color: #343a40;
     text-align: center;
+    font-size: 2.5em;
 }
 
 .container {
     background-color: #ffffff;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    width: 350px;
+    gap: 25px;
+    width: 400px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .container > div {
@@ -34,14 +47,15 @@ h1 {
 label {
     font-weight: 500;
     color: #495057;
+    font-size: 1.1em;
 }
 
 input[type="number"] {
-    padding: 10px;
+    padding: 12px;
     border: 1px solid #ced4da;
-    border-radius: 6px;
-    width: 180px;
-    font-size: 16px;
+    border-radius: 8px;
+    width: 200px;
+    font-size: 1.1em;
 }
 
 input[type="number"]:focus {
@@ -51,13 +65,13 @@ input[type="number"]:focus {
 }
 
 button {
-    padding: 12px 24px;
+    padding: 14px 28px;
     background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1.1em;
     transition: background-color 0.3s ease;
 }
 
