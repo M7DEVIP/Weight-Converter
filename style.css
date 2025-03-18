@@ -4,7 +4,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 5px; /* Changed to 5px */
+    padding-top: 5px;
     background-color: #f8f9fa;
 }
 
@@ -22,7 +22,7 @@ h1 {
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 20px; /* Adjusted gap to accommodate more fields */
     width: 400px;
     animation: fadeIn 0.5s ease-out;
 }
@@ -48,13 +48,14 @@ label {
     font-weight: 500;
     color: #495057;
     font-size: 1.1em;
+    width: 150px; /* Adjusted label width */
 }
 
 input[type="number"] {
     padding: 12px;
     border: 1px solid #ced4da;
     border-radius: 8px;
-    width: 200px;
+    width: 220px; /* Adjusted input width */
     font-size: 1.1em;
 }
 
