@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const milligramsInput = document.getElementById('milligrams');
     const convertButton = document.getElementById('convertButton');
     const clearButton = document.getElementById('clearButton');
+    const highlightDuration = 300; // milliseconds
 
     function saveConversion() {
         localStorage.setItem('lastKilograms', kilogramsInput.value);
@@ -25,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (lastPounds !== null) poundsInput.value = lastPounds;
         if (lastMilligrams !== null) milligramsInput.value = lastMilligrams;
 
-        // Trigger input events to perform conversions on load if values are present
         if (lastKilograms) kilogramsInput.dispatchEvent(new Event('input'));
         else if (lastGrams) gramsInput.dispatchEvent(new Event('input'));
         else if (lastPounds) poundsInput.dispatchEvent(new Event('input'));
@@ -39,6 +39,13 @@ document.addEventListener('DOMContentLoaded', function() {
         if (elementToExclude !== milligramsInput) milligramsInput.value = '';
     }
 
+    function highlightInput(inputElement) {
+        inputElement.classList.add('conversion-highlight');
+        setTimeout(() => {
+            inputElement.classList.remove('conversion-highlight');
+        }, highlightDuration);
+    }
+
     kilogramsInput.addEventListener('input', function() {
         clearAllInputsExcept(kilogramsInput);
         const kg = parseFloat(kilogramsInput.value);
@@ -46,9 +53,12 @@ document.addEventListener('DOMContentLoaded', function() {
             gramsInput.value = (kg * 1000).toFixed(2);
             poundsInput.value = (kg * 2.20462).toFixed(2);
             milligramsInput.value = (kg * 1000000).toFixed(2);
+            highlightInput(gramsInput);
+            highlightInput(poundsInput);
+            highlightInput(milligramsInput);
             saveConversion();
         } else {
-            saveConversion(); // Still save even if input is cleared
+            saveConversion();
         }
     });
 
@@ -59,6 +69,9 @@ document.addEventListener('DOMContentLoaded', function() {
             kilogramsInput.value = (g / 1000).toFixed(2);
             poundsInput.value = (g * 0.00220462).toFixed(2);
             milligramsInput.value = (g * 1000).toFixed(2);
+            highlightInput(kilogramsInput);
+            highlightInput(poundsInput);
+            highlightInput(milligramsInput);
             saveConversion();
         } else {
             saveConversion();
@@ -72,6 +85,9 @@ document.addEventListener('DOMContentLoaded', function() {
             kilogramsInput.value = (lbs / 2.20462).toFixed(2);
             gramsInput.value = (lbs / 0.00220462).toFixed(2);
             milligramsInput.value = (lbs * 453592.37).toFixed(2);
+            highlightInput(kilogramsInput);
+            highlightInput(gramsInput);
+            highlightInput(milligramsInput);
             saveConversion();
         } else {
             saveConversion();
@@ -85,6 +101,9 @@ document.addEventListener('DOMContentLoaded', function() {
             kilogramsInput.value = (mg / 1000000).toFixed(2);
             gramsInput.value = (mg / 1000).toFixed(2);
             poundsInput.value = (mg / 453592.37).toFixed(2);
+            highlightInput(kilogramsInput);
+            highlightInput(gramsInput);
+            highlightInput(poundsInput);
             saveConversion();
         } else {
             saveConversion();
@@ -100,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
         gramsInput.value = '';
         poundsInput.value = '';
         milligramsInput.value = '';
-        saveConversion(); // Save empty values to clear local storage on clear
+        saveConversion();
     });
 
     loadLastConversion();

@@ -22,7 +22,7 @@ h1 {
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Adjusted gap to accommodate more fields */
+    gap: 20px;
     width: 400px;
     animation: fadeIn 0.5s ease-out;
 }
@@ -48,21 +48,27 @@ label {
     font-weight: 500;
     color: #495057;
     font-size: 1.1em;
-    width: 150px; /* Adjusted label width */
+    width: 150px;
 }
 
 input[type="number"] {
     padding: 12px;
     border: 1px solid #ced4da;
     border-radius: 8px;
-    width: 220px; /* Adjusted input width */
+    width: 220px;
     font-size: 1.1em;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out; /* Added transition for smoother highlight */
 }
 
 input[type="number"]:focus {
     outline: none;
     border-color: #007bff;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.conversion-highlight {
+    background-color: #e9ecef; /* Light gray background for highlight */
+    border-color: #007bff !important; /* Highlight border color */
 }
 
 button {
