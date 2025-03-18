@@ -13,4 +13,22 @@ document.addEventListener('DOMContentLoaded', function() {
             poundsInput.value = '';
         }
     });
+
+    poundsInput.addEventListener('input', function() {
+        const pounds = parseFloat(poundsInput.value);
+        if (!isNaN(pounds)) {
+            const kilograms = pounds / 2.20462;
+            kilogramsInput.value = kilograms.toFixed(2);
+        } else {
+            kilogramsInput.value = '';
+        }
+    });
+
+    kilogramsInput.addEventListener('input', function() {
+        poundsInput.value = ''; // Clear the other input when one is being typed into
+    });
+
+    poundsInput.addEventListener('input', function() {
+        kilogramsInput.value = ''; // Clear the other input when one is being typed into
+    });
 });
