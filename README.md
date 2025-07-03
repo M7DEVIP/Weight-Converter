@@ -2,6 +2,11 @@
 
 ![Weight Converter Preview](https://github.com/M7DEVIP/Weight-Converter/releases)
 
+
+[Live Demo 🚀](https://abubakar308.github.io/Weight-Converter/)
+
+
+
 ## Description
 Welcome to the Weight Converter repository! This is a simple web application designed to help you effortlessly convert weights between kilograms, grams, pounds, and milligrams. Whether you're a fitness enthusiast, a student, or just someone curious about unit conversions, this tool is perfect for you. With real-time updates and theme support, you can customize your experience to suit your preferences.
 
@@ -13,6 +18,13 @@ Welcome to the Weight Converter repository! This is a simple web application des
 🔹 Easy-to-use interface for seamless navigation  
 🔹 Comprehensive unit conversion capabilities  
 🔹 Smooth user experience for quick and efficient conversions  
+
+## 💻 Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript (Vanilla)
+- Local Storage API
 
 ## How to Use
 1. Simply enter the weight you want to convert in the input field.
