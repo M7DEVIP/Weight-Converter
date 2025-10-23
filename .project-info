@@ -1,0 +1,19 @@
+# Weight Converter - Project Configuration
+
+This file contains configuration for deployment and project settings.
+
+## Deployment
+- **Framework:** Static HTML/CSS/JavaScript
+- **Build:** No build process required
+- **Deploy:** Can be deployed to any static hosting service
+- **CDN:** No CDN configuration needed
+
+## Supported Platforms
+- GitHub Pages
+- Netlify
+- Vercel
+- Any static web hosting
+
+## Environment
+- **Development:** Open index.html in browser or use Live Server
+- **Production:** Upload files to any web server
